@@ -10,11 +10,22 @@ export default defineConfig(async (): Promise<UserConfig> => {
     build: {
       outDir: resolve(__dirname, 'dist'),
       emptyOutDir: true,
+      minify: true,
       lib: {
         entry,
         formats: ['es'],
         fileName: (format, name) => `${name}.js`,
       },
+      rollupOptions: {
+        output: {
+          preserveModules: true,
+          preserveModulesRoot: 'src/entry',
+        },
+      },
+    },
+    esbuild: {
+      // https://github.com/vitejs/vite/pull/18737
+      minifyWhitespace: true,
     },
     resolve: {
       alias: { '@': resolve(__dirname, 'src') },
