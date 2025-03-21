@@ -15,7 +15,8 @@
   "author": "Tanimodori",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build:vite": "tsc && vite build",
+    "build": "tsc && vite build && esbuild dist/**/*.js --outdir=dist --allow-overwrite --charset=utf8 --minify-whitespace --format=esm",
     "dev": "vite",
     "preview": "vite preview"
   },
@@ -23,6 +24,7 @@
     "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
     "@types/node": "^22.10.5",
     "acorn": "^8.14.1",
+    "esbuild": "^0.25.1",
     "fast-glob": "^3.3.3",
     "prettier": "^3.3.3",
     "typescript": "~5.6.2",
@@ -31,3 +33,4 @@
     "vitest": "^2.1.8"
   }
 }
+
