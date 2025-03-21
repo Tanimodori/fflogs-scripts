@@ -1,4 +1,7 @@
+import { FFlogs } from './fflogs';
+
 declare global {
-  var pinMatchesFightEvent: (event: any, _fight: any) => any;
+  var initializePinForFight: (fight: FFlogs.Fight) => any;
+  var pinMatchesFightEvent: (event: FFlogs.Event, fight: FFlogs.Fight) => any;
 }
 export {};

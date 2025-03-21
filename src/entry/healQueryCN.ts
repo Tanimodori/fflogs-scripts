@@ -110,7 +110,7 @@ const names = [
 ];
 
 globalThis.pinMatchesFightEvent = (event, _fight) => {
-  if (event.type === 'cast' && names.includes(event.ability.name)) {
+  if (event.type === 'cast' && names.includes(event.ability?.name as string)) {
     return true;
   }
   return false;
