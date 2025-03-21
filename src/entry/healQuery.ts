@@ -204,7 +204,7 @@ const names = [
   ...(TARGETS.includes('DHeal') ? DHeal : []),
 ];
 
-export const pinMatchesFightEvent = (event: any, _fight: any) => {
+globalThis.pinMatchesFightEvent = (event, _fight) => {
   if (event.type === 'cast' && names.includes(event.ability.name)) {
     return true;
   }
