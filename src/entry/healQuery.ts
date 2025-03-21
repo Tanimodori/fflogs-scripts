@@ -55,6 +55,10 @@ const TDDec = [
   'Divine Veil',
   'ディヴァインヴェール',
 
+  '武装戍卫',
+  'Passage of Arms',
+  'パッセージ・オブ・アームズ',
+
   // DRK
   '暗黑布道',
   'Dark Missionary',
