@@ -2,11 +2,11 @@
 import { resolve } from 'path';
 import glob from 'fast-glob';
 import { defineConfig, type UserConfig } from 'vite';
+import stripComments from 'vite-plugin-strip-comments';
 import removeExport from './build/removeExport';
 
 export default defineConfig(async (): Promise<UserConfig> => {
   const entry = await glob('src/entry/**/*.ts');
-  console.log(entry);
   return {
     build: {
       outDir: resolve(__dirname, 'dist'),
@@ -21,7 +21,7 @@ export default defineConfig(async (): Promise<UserConfig> => {
     resolve: {
       alias: { '@': resolve(__dirname, 'src') },
     },
-    plugins: [removeExport],
+    plugins: [stripComments({ type: 'none' }), removeExport],
   };
 });
 

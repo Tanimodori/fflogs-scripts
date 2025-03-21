@@ -5,7 +5,6 @@ import { PluginOption } from 'vite';
 
 const plugin: PluginOption = {
   name: 'remove-export',
-  enforce: 'post',
   renderChunk(code) {
     const tree = Parser.parse(code, {
       ecmaVersion: 2020,
