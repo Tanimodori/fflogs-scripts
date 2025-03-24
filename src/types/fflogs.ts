@@ -73,7 +73,7 @@ export namespace FFlogs {
     | 'parriedCriticalHit'
     | 'unknown';
 
-  export interface DamageEvent extends EventBase {
+  export interface DamageEventBase extends EventBase {
     absorbed: number;
     absorbedDamage: number;
     absorbedHealing: number;
@@ -98,8 +98,14 @@ export namespace FFlogs {
     packetId: number;
     subtractsFromSupportedActor: boolean;
     supportedActor: null | Actor;
-    type: 'damage';
     unmitigatedAmount: number;
+  }
+  export interface DamageEvent extends DamageEventBase {
+    type: 'damage';
+  }
+
+  export interface CalculatedDamageEvent extends DamageEventBase {
+    type: 'calculateddamage';
   }
 
   export interface ApplyOrRefreshEvent extends EventBase {
@@ -123,7 +129,7 @@ export namespace FFlogs {
     type: 'cast';
   }
 
-  export type Event = DamageEvent | ApplyBuffEvent | ApplyDebuffEvent | CastEvent;
+  export type Event = DamageEvent | CalculatedDamageEvent | ApplyBuffEvent | ApplyDebuffEvent | CastEvent;
 
   export interface Fight {
     allEvents: Event[];
